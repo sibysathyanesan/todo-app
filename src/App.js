@@ -14,12 +14,12 @@ class App extends Component {
       {
         id: uuidv4(),
         title: 'complete smartoni guest api',
-        completed: false
+        completed: true
       },
       {
         id: uuidv4(),
         title: 'doctor appoinment',
-        completed: true
+        completed: false
       },
       {
         id: uuidv4(),
@@ -50,37 +50,36 @@ class App extends Component {
 
   // Add todo
   addTodo = (title) => {
-    let newTodo = {
-      id: uuidv4(),
-      title,
-      completed: false
+    if (title) {
+      let newTodo = {
+        id: uuidv4(),
+        title,
+        completed: false
+      }
+      this.setState({ todos: [...this.state.todos, newTodo] });
     }
-    this.setState({ todos: [...this.state.todos, newTodo] });
   }
 
 
   render() {
     //console.log(this.state.todos);
-      return (
-        <Router>
-          <div className="App">
-            <div className="container">
-              <Header />
-              <Route exact path="/" render={props => (
-                <React.Fragment>
-                  <AddTodo addTodo={this.addTodo} />
-                  <Todos todos={this.state.todos}  markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
-                </React.Fragment>
-              )} />
-              <Route exact path="/about" component={About} />
-            </div>
+    return (
+      <Router>
+        <div className="App">
+          <div className="container">
+            <Header />
+            <Route exact path="/" render={props => (
+              <React.Fragment>
+                <AddTodo addTodo={this.addTodo} />
+                <Todos todos={this.state.todos}  markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
+              </React.Fragment>
+            )} />
+            <Route exact path="/about" component={About} />
           </div>
-        </Router>
-      );
+        </div>
+      </Router>
+    );
   }
-
-
-
 }
 
 export default App;

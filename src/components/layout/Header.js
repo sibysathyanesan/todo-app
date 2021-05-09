@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Header() {
     return (
         <header style = {headerStyle}>
@@ -10,8 +10,8 @@ function Header() {
 }
 
 const headerStyle = {
-    background: '#333',
-    color: '#fff',
+    background: '#476ad4f7',
+    color: '#ffffff',
     textAlign: 'center',
     padding: '10px'
 }

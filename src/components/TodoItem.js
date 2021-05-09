@@ -5,19 +5,21 @@ export class TodoItem extends Component {
 
     getStyle = () => {
         return {
-            backgroundColor : '#f4f4f4',
+            backgroundColor: '#ffff3a73',
             padding: '15px',
-            borderBottom: '1px #ab8683 solid',
+            border: '1px solid #6f6f1e73',
+            margin: '5px',
+            borderRadius: '7px',
             textDecoration: this.props.todo.completed ? 'line-through' : 'none'
         }
     }
 
     render() {
-        const {id, title} = this.props.todo;
+        const {id, title, completed} = this.props.todo;
         return (
-            <div style={this.getStyle()}>
+            <div /* style={this.getStyle()} */ className={completed ? 'todo-item strike' : 'todo-item'}>
                 <p>
-                    <input type="checkbox" onChange={this.props.markComplete.bind(this, id)} /> {' '} { title }
+                    <input type="checkbox" onChange={this.props.markComplete.bind(this, id)} defaultChecked={completed} /> {' '} { title }
                     <button style={btnStyle} onClick={this.props.deleteTodo.bind(this, id)}>X</button>
                 </p>
             </div>
