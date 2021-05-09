@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, HashRouter } from 'react-router-dom';
+import { /* BrowserRouter as Router, */ Route, HashRouter } from 'react-router-dom';
 import Todos from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
